@@ -1,0 +1,22 @@
+#include<iostream>
+using namespace std;
+int  count(int a[],int n)
+{
+	int min=a[0],min_index;
+	for(int i=0;i<n;i++)
+	{
+		if(min>a[i])
+		{
+			min=a[i];
+			min_index=i;
+		}
+	}
+	return (min_index);
+}
+int main()
+{
+	int a[]={15,18,2,3,4,5,12};
+	int n=sizeof(a)/sizeof(a[0]);
+	cout<<count(a,n);
+
+}
