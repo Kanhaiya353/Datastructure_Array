@@ -1,0 +1,40 @@
+#include<iostream>
+using namespace std;
+int saap(int *p,int *q)
+{
+	int temp=*p;
+	*p=*q;
+	*q=temp;
+}
+void reversearray(int a[],int start,int end)
+{
+	while(start<end)
+	{
+		saap(&a[start],&a[end]);
+		start++;
+		end--;
+	}
+}
+void rotatearray(int a[],int d,int n)
+{
+	reversearray(a,0,n-1);
+    reversearray(a,0,d-1);
+	reversearray(a,d,n-1);
+}
+int  print(int a[],int n)
+{
+	for(int i=0;i<n;i++)
+	{
+		
+	
+	cout<<a[i]<<" ";
+	}
+}
+int main()
+{
+int a[]={1,2,3,4,5,6,7,8,9,10};
+int n=sizeof(a)/sizeof(a[0]);
+int d=5;
+rotatearray(a,d,n);
+print(a,n);
+}
