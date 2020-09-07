@@ -1,0 +1,55 @@
+#include<bits/stdc++.h>
+using namespace std;
+
+class GFG{
+	public:
+	void reverse(int [],int);
+	void swap(int*,int*);
+	void printarray(int[],int);
+};
+
+
+void GFG::reverse(int a[],int n)
+{
+	int i=-1;
+	for(int j=0;j<n;j++)
+	{
+		if(a[j]<0)
+		{
+		i++;
+		swap(&a[i],&a[j]);
+	     }
+		
+	}
+	
+	int pos=i+1,neg=0;
+	while(pos<n&&neg<pos&&a[neg]<0)
+	{
+		swap(&a[neg],&a[pos]);
+		pos++;
+		neg+=2;
+	}
+}
+void GFG::swap(int *a,int *b)
+{
+	int temp=*a;
+	*a=*b;
+	*b=temp;
+	
+}
+void GFG::printarray(int a[],int n)
+{
+	for(int i=0;i<n;i++)
+	{
+		cout<<a[i]<<" ";
+	}
+}
+int main()
+{
+	int a[]={-1,2,-3,4,5,6,-7,8,9};
+	int n=sizeof(a)/sizeof(a[0]);
+	GFG d;
+	d.reverse(a,n);
+	d.printarray(a,n);
+	
+}
