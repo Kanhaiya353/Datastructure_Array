@@ -1,0 +1,30 @@
+#include<bits/stdc++.h>
+using namespace std;
+void rearrange(int a[],int n)
+{
+	sort(a,a+n);
+	int temp[n],t=0;
+	
+	for(int i=0,j=n-1;i<=n/2||j>=n/2;i++,j--)
+	{
+		temp[t]=a[i];
+		t++;
+		temp[t]=a[j];
+		t++;
+	}
+	for(int i=0;i<n;i++)
+	{
+		a[i]=temp[i];
+	}
+}
+int main()
+{
+	int a[]={5,8,1,4,2,9,3,7,6};
+	int n=sizeof(a)/sizeof(a[0]);
+	rearrange(a,n);
+	for(int i=0;i<n;i++)
+	{
+		cout<<a[i]<<" ";
+	}
+	
+}
