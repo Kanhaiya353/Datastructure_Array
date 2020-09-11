@@ -1,0 +1,77 @@
+#include<iostream>
+#include<climits>
+using namespace std;
+	struct Headnode
+	{
+		int val;
+		int r;
+		int c;
+		
+	};
+	void swap(Headnode *x,Headnode *y)
+	{
+		Headnode z=*x;
+		*x=*y;
+		*y=z;
+	}
+	void minhead(Headnode harr[],int i,int head_size)
+	{
+		int l=i*2+1;
+		int r=i*2+2;
+		int smallest=i;
+		if(l<head_size&&harr[l].val<harr[i].val)
+		{
+			smallest=l;
+			
+		}
+		if(r<head_size&&harr[r].val<harr[smallest].val)
+		{
+			smallest=r;
+		}
+		if(smallest!=i)
+		{
+			swap(&harr[i],&harr[smallest]);
+			minhead(harr,smallest,head_size);
+		}
+	}
+	void buildHead(Headnode harr[],int n)
+	{
+		int i=(n-1)/2;
+		while(i>=0)
+		{
+			minhead(harr,i,n);
+			i--;
+		}
+	}
+int  kthsmallestelement(int a[4][4],int n,int k)
+	{
+//		if(k <= 0||k > n*n)
+//	{
+//			return INT_MAX;}
+		
+		Headnode harr[n];
+		for(int i=0;i<n;i++)
+		{
+			harr[i]={a[0][i],0,i};
+		}
+		buildHead(harr,n);
+		Headnode hr;
+		for(int i=0;i<k;i++)
+		{
+			hr=harr[0];
+			int nextval=(hr.r<(n-1))?a[hr.r+1][hr.c]:INT_MAX;
+			harr[0]={nextval,(hr.r)+1,hr.c};
+			minhead(harr,0,n);
+		}
+		return hr.val;
+	}
+int main()
+{
+	int a[4][4]={{10,20,30,40},
+	             {15,25,35,45},
+				 {25,29,37,48},
+				 {32,33,39,50}};
+		
+		cout<<kthsmallestelement(a,4,2);
+	
+}
