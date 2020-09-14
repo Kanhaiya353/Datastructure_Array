@@ -1,0 +1,23 @@
+#include<iostream>
+using namespace std;
+int findadjacentsum(int a[],int n)
+{
+	int inpo=a[0];
+	int expo=0;
+	int expo_new;
+	for(int i=1;i<n;i++)
+	{
+		expo_new=(inpo>expo)?inpo:expo;
+		inpo=expo+a[i];
+		expo=expo_new;
+	}
+	return(inpo>expo?inpo:expo);
+}
+int main()
+{
+	int a[]={1,2,3};
+	int n=sizeof(a)/sizeof(a[0]);
+	cout<<findadjacentsum(a,n);
+	
+	
+}
