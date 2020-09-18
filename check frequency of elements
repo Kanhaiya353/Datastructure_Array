@@ -1,0 +1,27 @@
+//{2, 8, 6, 9, 8, 6, 8, 2, 11}
+//2,8,8
+//2,5,6
+#include<iostream>
+using namespace std;
+int frequencya(int a[],int n,int l,int r,int target)
+{
+	int c=0;
+	for(int i=l-1;i<=r;i++)
+	{
+		if(target==a[i])
+		{
+			c++;
+		}
+	}
+	cout<<c<<"\n";
+}
+using namespace std;
+int main()
+{
+	int a[]={2,8,6,9,8,6,8,2,11};
+	int n=sizeof(a)/sizeof(a[0]);
+	frequencya(a,n,1,6,2);
+	frequencya(a,n,4,9,8);
+	
+	
+}
