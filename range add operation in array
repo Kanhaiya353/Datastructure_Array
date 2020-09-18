@@ -1,0 +1,33 @@
+//a[]={0,0,0,0,0,0}
+//0,2---100
+//1,5---100
+//2,3---100
+#include<iostream>
+using namespace std;
+void adda(int a[],int n,int l,int r,int k)
+{
+	for(int i=l;i<=r;i++)
+	{
+		a[i]=a[i]+100;
+	}
+	
+}
+void print(int a[],int n)
+{
+	for(int i=0;i<n;i++)
+	{
+		cout<<a[i]<<" ";
+	}
+}
+int main()
+{
+	int a[]={0,0,0,0,0,0};
+	int n=sizeof(a)/sizeof(a[0]);
+	adda(a,n,0,2,100);
+	adda(a,n,1,5,100);
+	adda(a,n,2,3,100);
+	print(a,n);
+	
+	
+	
+}
