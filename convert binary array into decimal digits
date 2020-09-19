@@ -1,0 +1,17 @@
+//1,0,1,0,1,1
+#include<iostream>
+using namespace std;
+int main()
+{
+	int a[]={1,0,1,0,1,1},b=1,result=0;
+	int n=sizeof(a)/sizeof(a[0]);
+	int l=2,r=4;
+	for(int i=l;i<=r;i++)
+	{
+		int remainder=a[i]%10;
+		result=result+remainder*b;
+		b=b*2;
+		a[i]=a[i]/10
+	;}
+	cout<<result;
+}
