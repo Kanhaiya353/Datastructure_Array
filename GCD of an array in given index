@@ -1,0 +1,25 @@
+#include<iostream>
+using namespace std;
+int  gcd(int a,int b)
+{
+	if(a==0)
+	{
+		return b;
+	}
+	return gcd(b%a,a);
+}
+int findgcd(int a[],int n,int index1,int index2)
+{ int result=a[index1];
+  for(int i=index1;i<index2;i++)
+  {
+  	  result=gcd(a[i],result);
+  }
+	return result;
+}
+int main()
+{
+	int a[]={2,3,60,90,50};
+	int index1=2,index2=4;
+	int n=sizeof(a)/sizeof(a[0]);
+	cout<<findgcd(a,n,index1,index2);
+}
