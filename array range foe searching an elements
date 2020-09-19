@@ -1,0 +1,30 @@
+#include<iostream>
+using namespace std;
+void search(int a[],int n,int l,int r,int key)
+{
+	int c=0;
+	for(int i=l-1;i<r;i++)
+	{
+		if(a[i]==key)
+		{
+			c++;
+		}
+	
+	}
+	if(c>=1)
+	{
+		cout<<"YES";
+	}
+	else
+	{
+		cout<<"NO";
+	}
+	
+}
+int main()
+{
+	int a[]={1,1,5,4,5};
+	int n=sizeof(a)/sizeof(a[0]);
+	int l=3,r=5,key=5;
+	search(a,n,l,r,key);
+}
