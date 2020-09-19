@@ -1,0 +1,29 @@
+#include<iostream>
+using namespace std;
+int gcd(int a,int b)
+{
+	if(a==0)
+	{
+		return b;
+	}
+	return gcd(b%a,a);
+}
+int lcm(int a,int b)
+{
+	return (a*b)/gcd(a,b);
+}
+int findlcm(int a[],int index,int index1)
+{
+int result=a[index];
+for(int i=index;i<=index1;i++)
+{
+	result=lcm(a[i],result);
+	}	
+	return result;
+}
+int main()
+{
+int a[]={5,7,5,2,10,12,11,17,14,1,44};
+	int index=5,index1=10;
+	cout<<findlcm(a,index,index1);
+}
