@@ -1,0 +1,45 @@
+#include<iostream>
+using namespace std;
+void most(int a[],int size)
+{
+	int max=0;
+	for(int i=0;i<size;i++)
+	{
+		int count=1;
+		for(int j=i+1;j<size;j++)
+		{
+			if(a[i]==a[j])
+			{
+				count++;
+			}
+		}
+		if(count>max)
+		{
+			max=count;
+		}
+	}
+	for(int i=0;i<size;i++)
+	{
+		int count=1;
+		for(int j=i+1;j<size;j++)
+		{
+			if(a[i]==a[j])
+			{
+				count++;
+			}
+		}
+		if(count==max)
+		{
+			cout<<a[i];
+		}
+	}
+	
+	
+}
+int main()
+{
+	int a[]={-5,-5,2,2,2,2,3,7,7,7};
+	int n=sizeof(a)/sizeof(a[0]);
+	 most(a,n);
+	
+}
