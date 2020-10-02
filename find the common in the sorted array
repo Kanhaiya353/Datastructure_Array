@@ -1,0 +1,27 @@
+#include<iostream>
+using namespace std;
+int main()
+{
+	int a[]={10,20,3,4,5,6,1};
+	int n1=sizeof(a)/sizeof(a[0]);
+	int b[]={10,40,8,9,0,3,1};
+	int n2=sizeof(b)/sizeof(b[0]);
+	int c[]={50,10,8,5,4,3,1,0};
+	int n3=sizeof(c)/sizeof(c[0]);
+	
+	for(int i=0;i<n1;i++)
+	{
+		for(int j=0;j<n2;j++)
+		{
+			for(int k=0;k<n3;k++)
+			{
+				if(a[i]==b[j]&&b[j]==c[k])
+				{
+					cout<<a[i]<<" ";
+				}
+				
+			}
+		}
+	}
+	
+}
