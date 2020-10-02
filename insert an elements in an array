@@ -1,0 +1,19 @@
+#include<iostream>
+using namespace std;
+int main()
+{
+	int a[]={3,5,8,1};
+	int n=sizeof(a)/sizeof(a[0]);
+	int k,key;
+	cin>>k>>key;
+	 
+	for( int i=n-1;i>=key-1;i--)
+	{
+		a[i+1]=a[i];
+	}
+	a[key-1]=k;
+	for(int i=0;i<=n;i++)
+	{
+		cout<<a[i]<<"\n";
+	}
+}
